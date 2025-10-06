@@ -11,55 +11,53 @@ export interface Match {
   scoreAway: number;
   foulsHome: number;
   foulsAway: number;
-  startAt: string;          // ISO string
-  endAt: string | null;     // puede ser null si sigue en curso
+  startAt: string | null;           // puede ser null si no lo usas
+  endAt: string | null;             // null mientras esté en curso
   status: 'in_progress' | 'finished';
 }
 
-const API_URL = '/api/matches';
+const API_BASE = '/api';            // mismo origen (http://localhost:8081)
+const MATCHES = `${API_BASE}/matches`;
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  // Historial completo (para el componente Historial)
+  // Historial
   getMatches(): Observable<Match[]> {
-    return this.http.get<Match[]>(API_URL);
+    return this.http.get<Match[]>(MATCHES);
   }
 
-  // Partido en curso (para restaurar estado al cargar)
+  // Partido en curso
   getInProgress(): Observable<Match | null> {
-    return this.http.get<Match | null>(`${API_URL}/in-progress`);
+    return this.http.get<Match | null>(`${MATCHES}/in-progress`);
   }
 
-  // Crear partido (POST genérico)
+  // Crear partido (general)
   createMatch(match: Match): Observable<Match> {
-    return this.http.post<Match>(API_URL, match);
+    return this.http.post<Match>(MATCHES, match);
   }
 
-  // Actualizar partido por id (PUT)
+  // Actualizar por id
   updateMatch(id: number, match: Match): Observable<Match> {
-    return this.http.put<Match>(`${API_URL}/${id}`, match);
+    return this.http.put<Match>(`${MATCHES}/${id}`, match);
   }
 
-  // Iniciar partido desde el front (usado por NuevoPartidoComponent)
-  // Enviamos los datos mínimos + estado 'in_progress'.
-  // Si tu endpoint /start también recibe durationSeconds, lo incluimos.
+  // Iniciar partido desde el front
   startMatch(input: { homeTeam: string; awayTeam: string; durationSeconds: number }): Observable<Match> {
-    const body: Match & { durationSeconds?: number } = {
-      homeTeam: input.homeTeam,
-      awayTeam: input.awayTeam,
-      quarter: 1,
+    const body: Match = {
+      homeTeam:  input.homeTeam,
+      awayTeam:  input.awayTeam,
+      quarter:   1,
       scoreHome: 0,
       scoreAway: 0,
       foulsHome: 0,
       foulsAway: 0,
-      startAt: new Date().toISOString(),
-      endAt: null,
-      status: 'in_progress',
-      // Si tu Program.cs no usa duración, puedes quitar esta línea.
-      durationSeconds: input.durationSeconds,
+      startAt:   new Date().toISOString(),
+      endAt:     null,
+      status:    'in_progress',
     };
-    return this.http.post<Match>(`${API_URL}/start`, body);
+    // OJO: endpoint correcto
+    return this.http.post<Match>(MATCHES, body);
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ktZCKD+E/0s=",
+  "dgSpecHash": "In3f+JQGQh8=",
   "success": true,
   "projectFilePath": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\BasketApi.csproj",
   "expectedPackageFiles": [
@@ -92,8 +92,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
+      "message": "BasketApi depends on Swashbuckle.AspNetCore (>= 6.7.5) but Swashbuckle.AspNetCore 6.7.5 was not found. Swashbuckle.AspNetCore 6.8.0 was resolved instead.",
+      "projectPath": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\BasketApi.csproj",
       "warningLevel": 1,
-      "message": "BasketApi depende de Swashbuckle.AspNetCore (>= 6.7.5), pero no se encontró Swashbuckle.AspNetCore 6.7.5. Se resolvió una mejor coincidencia aproximada de Swashbuckle.AspNetCore 6.8.0.",
+      "filePath": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\BasketApi.csproj",
       "libraryId": "Swashbuckle.AspNetCore",
       "targetGraphs": [
         "net8.0"

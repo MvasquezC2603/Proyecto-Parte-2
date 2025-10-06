@@ -8,7 +8,6 @@ import { ApiService, Match } from '../../services/api';
   templateUrl: './controles.html',
 })
 export class ControlesComponent {
-
   constructor(
     public partido: PartidoService,
     private api: ApiService
@@ -24,7 +23,7 @@ export class ControlesComponent {
       id: this.partido.currentMatchId() ?? undefined,
       homeTeam:  this.partido.homeTeam(),
       awayTeam:  this.partido.awayTeam(),
-      startAt:   new Date().toISOString(), // si guardas el real, ponlo aquí
+      startAt:   new Date().toISOString(),
       endAt:     new Date().toISOString(),
       quarter:   this.partido.quarter(),
       scoreHome: this.partido.scoreHome(),
@@ -37,7 +36,7 @@ export class ControlesComponent {
 
   private afterSave(saved: Match, msg: string) {
     alert(`${msg} (Id ${saved.id ?? 'desconocido'})`);
-    this.partido.setMatchId(null);  // 👈 limpiar el id en memoria (nombre correcto)
+    this.partido.currentMatchId.set(null);  // 👈 limpiar id
     this.partido.reiniciar();
     this.partido.quarter.set(1);
   }
@@ -49,19 +48,17 @@ export class ControlesComponent {
     const id = this.partido.currentMatchId();
     console.log('Finalizar -> currentMatchId:', id, 'payload:', payload);
 
-    // 1) Si tenemos el id en memoria -> PUT directo
     if (id) {
       this.api.updateMatch(id, payload).subscribe({
         next: saved => this.afterSave(saved, 'Partido actualizado'),
         error: err => {
           console.error('PUT falló con id en memoria:', err);
-          this.tryResolveByQueryingInProgress(payload); // fallback
+          this.tryResolveByQueryingInProgress(payload);
         }
       });
       return;
     }
 
-    // 2) Si NO hay id en memoria -> intentar encontrar el in-progress en la API
     this.tryResolveByQueryingInProgress(payload);
   }
 
@@ -70,7 +67,7 @@ export class ControlesComponent {
       next: m => {
         if (m?.id) {
           console.log('Encontrado in-progress en API con id:', m.id);
-          this.partido.setMatchId(m.id); // 👈 fijar id correcto
+          this.partido.currentMatchId.set(m.id);  // 👈 fijar id correcto
           this.api.updateMatch(m.id, payload).subscribe({
             next: saved => this.afterSave(saved, 'Partido actualizado (por búsqueda)'),
             error: err2 => {
@@ -101,4 +98,3 @@ export class ControlesComponent {
     });
   }
 }
-

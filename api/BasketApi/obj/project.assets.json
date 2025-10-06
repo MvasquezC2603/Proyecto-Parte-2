@@ -4612,7 +4612,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -4660,7 +4661,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -4669,7 +4670,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "BasketApi depende de Swashbuckle.AspNetCore (>= 6.7.5), pero no se encontró Swashbuckle.AspNetCore 6.7.5. Se resolvió una mejor coincidencia aproximada de Swashbuckle.AspNetCore 6.8.0.",
+      "message": "BasketApi depends on Swashbuckle.AspNetCore (>= 6.7.5) but Swashbuckle.AspNetCore 6.7.5 was not found. Swashbuckle.AspNetCore 6.8.0 was resolved instead.",
       "libraryId": "Swashbuckle.AspNetCore",
       "targetGraphs": [
         "net8.0"

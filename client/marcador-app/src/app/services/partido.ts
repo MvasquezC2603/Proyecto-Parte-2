@@ -2,51 +2,49 @@ import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class PartidoService {
-  // Estado principal
+  // 👇 nombres de equipos como señales
   homeTeam = signal('Local');
   awayTeam = signal('Visita');
-  currentMatchId = signal<number | null>(null);   // id de la API, si existe
 
+  // resto del estado
   scoreHome = signal(0);
   scoreAway = signal(0);
   foulsHome = signal(0);
   foulsAway = signal(0);
-  quarter   = signal(1);
+  quarter = signal(1);
 
-  // Reloj
-  durationSeconds = 600;                    // 10 min por defecto
-  remainingSeconds = signal(this.durationSeconds);
+  durationSeconds = 600;
+  remainingSeconds = signal(600);
   running = signal(false);
+
+  currentMatchId = signal<number | null>(null);
+
   private timerId: any = null;
 
-  // --- utilitarios ---
+  // Setear equipos desde "Nuevo Partido"
   setTeams(home: string, away: string) {
-    this.homeTeam.set(home?.trim() || 'Local');
-    this.awayTeam.set(away?.trim() || 'Visita');
+    this.homeTeam.set((home ?? '').trim() || 'Local');
+    this.awayTeam.set((away ?? '').trim() || 'Visita');
   }
 
-  setMatchId(id: number | null) {
-    this.currentMatchId.set(id);
-  }
-
-  // --- puntos ---
+  // Puntos
   sumarPuntos(equipo: 'home' | 'away', n: number) {
     if (equipo === 'home') this.scoreHome.set(this.scoreHome() + n);
-    else                   this.scoreAway.set(this.scoreAway() + n);
+    else this.scoreAway.set(this.scoreAway() + n);
   }
 
   restarPuntos(equipo: 'home' | 'away', n: number) {
     if (equipo === 'home') this.scoreHome.set(Math.max(0, this.scoreHome() - n));
-    else                   this.scoreAway.set(Math.max(0, this.scoreAway() - n));
+    else this.scoreAway.set(Math.max(0, this.scoreAway() - n));
   }
 
-  // --- faltas ---
+  // Faltas
   falta(equipo: 'home' | 'away') {
     if (equipo === 'home') this.foulsHome.set(this.foulsHome() + 1);
-    else                   this.foulsAway.set(this.foulsAway() + 1);
+    else this.foulsAway.set(this.foulsAway() + 1);
   }
 
-  // --- reloj ---
+  // Reloj
   iniciar() {
     if (this.running()) return;
     this.running.set(true);
@@ -64,6 +62,7 @@ export class PartidoService {
   }
 
   reiniciar() {
+    // 👇 NO tocamos homeTeam/awayTeam aquí
     this.pausar();
     this.scoreHome.set(0);
     this.scoreAway.set(0);
@@ -79,11 +78,21 @@ export class PartidoService {
     this.remainingSeconds.set(this.durationSeconds);
   }
 
-  // --- helpers ---
+  finalizar() {
+    this.pausar();
+    return {
+      home: this.scoreHome(),
+      away: this.scoreAway(),
+      foulsHome: this.foulsHome(),
+      foulsAway: this.foulsAway(),
+      quarter: this.quarter(),
+      finishedAt: new Date().toISOString()
+    };
+  }
+
   formatMMSS(totalSeconds: number) {
     const m = Math.floor(totalSeconds / 60);
     const s = totalSeconds % 60;
     return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
   }
 }
-// Servicio para manejar el estado de un partido deportivo (baloncesto)
