@@ -1,0 +1,7 @@
+<div>
+  <h3>Faltas Local: {{ partido.foulsHome() }}</h3>
+  <button (click)="partido.falta('home')">+ Falta Local</button>
+
+  <h3>Faltas Visita: {{ partido.foulsAway() }}</h3>
+  <button (click)="partido.falta('away')">+ Falta Visita</button>
+</div>

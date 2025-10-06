@@ -1,0 +1,6 @@
+<h2>Tiempo: {{ partido.formatMMSS(partido.remainingSeconds()) }}</h2>
+<button (click)="partido.iniciar()">Iniciar</button>
+<button (click)="partido.pausar()">Pausar</button>
+<button (click)="partido.reiniciar()">Reiniciar</button>
+<button (click)="partido.avanzarCuarto()">Avanzar Cuarto</button>
+<p>Cuarto: {{ partido.quarter() }}</p>

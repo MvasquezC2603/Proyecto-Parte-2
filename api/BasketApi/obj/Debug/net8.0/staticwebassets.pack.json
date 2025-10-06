@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\favicon.ico",
+      "PackagePath": "staticwebassets\\browser\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\index.html",
+      "PackagePath": "staticwebassets\\browser\\index.html"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\main-ZY4ADLFY.js",
+      "PackagePath": "staticwebassets\\browser\\main-ZY4ADLFY.js"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\polyfills-5CFQRCPP.js",
+      "PackagePath": "staticwebassets\\browser\\polyfills-5CFQRCPP.js"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\styles-X5KLOVVP.css",
+      "PackagePath": "staticwebassets\\browser\\styles-X5KLOVVP.css"
+    },
+    {
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\prerendered-routes.json",
+      "PackagePath": "staticwebassets\\prerendered-routes.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BasketApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BasketApi.props",
+      "PackagePath": "build\\BasketApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BasketApi.props",
+      "PackagePath": "buildMultiTargeting\\BasketApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BasketApi.props",
+      "PackagePath": "buildTransitive\\BasketApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

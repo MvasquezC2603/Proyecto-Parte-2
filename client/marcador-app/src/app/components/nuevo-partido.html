@@ -1,0 +1,13 @@
+<div style="display:flex; gap:12px; align-items:end; flex-wrap:wrap">
+  <div>
+    <label>Equipo Local</label><br>
+    <input [(ngModel)]="home" placeholder="Local" />
+  </div>
+
+  <div>
+    <label>Equipo Visita</label><br>
+    <input [(ngModel)]="away" placeholder="Visita" />
+  </div>
+
+  <button (click)="aplicar()">Aplicar</button>
+</div>

@@ -1,0 +1,59 @@
+<div style="display:grid; gap:12px; max-width:640px;">
+  <!-- Encabezado con equipos -->
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0;">{{ partido.homeTeam() }} vs {{ partido.awayTeam() }}</h3>
+    <div>
+      <strong>Cuarto:</strong> {{ partido.quarter() }}
+      &nbsp;|&nbsp;
+      <strong>Tiempo:</strong> {{ partido.formatMMSS(partido.remainingSeconds()) }}
+      &nbsp;|&nbsp;
+      <strong>Reloj:</strong> {{ partido.running() ? '▶ En curso' : '⏸ Pausado' }}
+    </div>
+  </div>
+
+  <!-- Controles de reloj -->
+  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+    <button (click)="iniciar()">Iniciar</button>
+    <button (click)="pausar()">Pausar</button>
+    <button (click)="reiniciar()">Reiniciar</button>
+    <button (click)="avanzarCuarto()">Siguiente cuarto</button>
+  </div>
+
+  <!-- Marcador -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <!-- Local -->
+    <div style="border:1px solid #ddd; padding:12px; border-radius:8px;">
+      <h4 style="margin-top:0;">{{ partido.homeTeam() }}: {{ partido.scoreHome() }}</h4>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <button (click)="partido.sumarPuntos('home',1)">+1</button>
+        <button (click)="partido.sumarPuntos('home',2)">+2</button>
+        <button (click)="partido.sumarPuntos('home',3)">+3</button>
+        <button (click)="partido.restarPuntos('home',1)">-1</button>
+      </div>
+      <div style="margin-top:8px;">
+        <strong>Faltas:</strong> {{ partido.foulsHome() }}
+        <button style="margin-left:8px;" (click)="partido.falta('home')">+ Falta</button>
+      </div>
+    </div>
+
+    <!-- Visita -->
+    <div style="border:1px solid #ddd; padding:12px; border-radius:8px;">
+      <h4 style="margin-top:0;">{{ partido.awayTeam() }}: {{ partido.scoreAway() }}</h4>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <button (click)="partido.sumarPuntos('away',1)">+1</button>
+        <button (click)="partido.sumarPuntos('away',2)">+2</button>
+        <button (click)="partido.sumarPuntos('away',3)">+3</button>
+        <button (click)="partido.restarPuntos('away',1)">-1</button>
+      </div>
+      <div style="margin-top:8px;">
+        <strong>Faltas:</strong> {{ partido.foulsAway() }}
+        <button style="margin-left:8px;" (click)="partido.falta('away')">+ Falta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finalizar -->
+  <div>
+    <button (click)="finalizar()">Finalizar y guardar</button>
+  </div>
+</div>

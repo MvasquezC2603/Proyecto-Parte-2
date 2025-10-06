@@ -1,0 +1,28 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=TuPasswordSeguro123!
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  api:
+    build:
+      context: ../api/BasketApi       # 👈 el contexto incluye la carpeta publish
+      dockerfile: Dockerfile          # 👈 el Dockerfile de arriba
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__SqlServer: Server=sqlserver,1433;Database=BasketDB;User Id=sa;Password=TuPasswordSeguro123!;TrustServerCertificate=True;
+    ports:
+      - "8081:8080"
+    volumes:
+      - ../client/marcador-app/dist/marcador-app/browser:/app/wwwroot
+
+volumes:
+  sql_data:

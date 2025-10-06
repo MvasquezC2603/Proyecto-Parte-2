@@ -1,0 +1,17 @@
+<h1>Marcador de Basket</h1>
+
+<!-- Barra de estado (texto) -->
+<div style="margin-bottom:12px;">
+  Cuarto: {{ partido.quarter() }} |
+  Tiempo: {{ partido.formatMMSS(partido.remainingSeconds()) }} |
+  Reloj: {{ partido.running() ? '▶' : '⏸' }} {{ partido.running() ? 'En juego' : 'Pausado' }}
+</div>
+
+<!-- === ÚNICO tablero/controles que queremos mostrar === -->
+<app-controles></app-controles>
+
+<!-- Form de nuevo partido -->
+<app-nuevo-partido></app-nuevo-partido>
+
+<!-- Historial -->
+<app-historial></app-historial>

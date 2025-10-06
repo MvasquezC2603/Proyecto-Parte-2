@@ -1,0 +1,45 @@
+<div style="max-width:840px;">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0;">Historial de partidos</h3>
+    <button (click)="refresh()">Actualizar</button>
+  </div>
+
+  <div *ngIf="loading" style="margin-top:8px;">Cargando...</div>
+  <div *ngIf="!loading && (!matches || matches.length === 0)" style="margin-top:8px;">
+    No hay partidos registrados.
+  </div>
+
+  <table *ngIf="!loading && matches && matches.length > 0"
+         style="width:100%; margin-top:12px; border-collapse:collapse;">
+    <thead>
+      <tr style="text-align:left; border-bottom:1px solid #ddd;">
+        <th style="padding:8px;">Id</th>
+        <th style="padding:8px;">Encuentro</th>
+        <th style="padding:8px;">Marcador</th>
+        <th style="padding:8px;">Faltas</th>
+        <th style="padding:8px;">Cuarto</th>
+        <th style="padding:8px;">Estado</th>
+        <th style="padding:8px;">Inicio</th>
+        <th style="padding:8px;">Fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of matches" style="border-bottom:1px solid #f0f0f0;">
+        <td style="padding:8px;">{{ m.id }}</td>
+        <td style="padding:8px;">
+          {{ m.homeTeam }} vs {{ m.awayTeam }}
+        </td>
+        <td style="padding:8px;">
+          {{ m.scoreHome }} - {{ m.scoreAway }}
+        </td>
+        <td style="padding:8px;">
+          {{ m.foulsHome }} - {{ m.foulsAway }}
+        </td>
+        <td style="padding:8px;">{{ m.quarter }}</td>
+        <td style="padding:8px;">{{ m.status }}</td>
+        <td style="padding:8px;">{{ m.startAt }}</td>
+        <td style="padding:8px;">{{ m.endAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
