@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z6u/HRdaMGAQrb/6FowDz7LOs6nK9CnHeXGJyRVT2ac=",
+  "Hash": "XsWIU0FM1a5waQVB6wbfo7DLNFT8pBlzhXism2LRzIQ=",
   "Source": "BasketApi",
   "BasePath": "_content/BasketApi",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\3rdpartylicenses.txt",
+      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\favicon.ico",
       "SourceId": "BasketApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
       "BasePath": "_content/BasketApi",
-      "RelativePath": "3rdpartylicenses.txt",
+      "RelativePath": "favicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,15 +33,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\favicon.ico",
+      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\index.html",
       "SourceId": "BasketApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
       "BasePath": "_content/BasketApi",
-      "RelativePath": "browser/favicon.ico",
+      "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,15 +52,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\index.html",
+      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\main-ZX3XWOMI.js",
       "SourceId": "BasketApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
       "BasePath": "_content/BasketApi",
-      "RelativePath": "browser/index.html",
+      "RelativePath": "main-ZX3XWOMI.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -71,15 +71,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\index.html"
+      "OriginalItemSpec": "wwwroot\\main-ZX3XWOMI.js"
     },
     {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\main-ZY4ADLFY.js",
+      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\polyfills-5CFQRCPP.js",
       "SourceId": "BasketApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
       "BasePath": "_content/BasketApi",
-      "RelativePath": "browser/main-ZY4ADLFY.js",
+      "RelativePath": "polyfills-5CFQRCPP.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -90,15 +90,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\main-ZY4ADLFY.js"
+      "OriginalItemSpec": "wwwroot\\polyfills-5CFQRCPP.js"
     },
     {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\polyfills-5CFQRCPP.js",
+      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\styles-X5KLOVVP.css",
       "SourceId": "BasketApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
       "BasePath": "_content/BasketApi",
-      "RelativePath": "browser/polyfills-5CFQRCPP.js",
+      "RelativePath": "styles-X5KLOVVP.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,45 +109,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\polyfills-5CFQRCPP.js"
-    },
-    {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\styles-X5KLOVVP.css",
-      "SourceId": "BasketApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
-      "BasePath": "_content/BasketApi",
-      "RelativePath": "browser/styles-X5KLOVVP.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\styles-X5KLOVVP.css"
-    },
-    {
-      "Identity": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\prerendered-routes.json",
-      "SourceId": "BasketApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\",
-      "BasePath": "_content/BasketApi",
-      "RelativePath": "prerendered-routes.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\prerendered-routes.json"
+      "OriginalItemSpec": "wwwroot\\styles-X5KLOVVP.css"
     }
   ]
 }

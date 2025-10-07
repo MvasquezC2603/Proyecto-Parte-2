@@ -1,32 +1,24 @@
 {
   "Files": [
     {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\3rdpartylicenses.txt",
-      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\favicon.ico",
-      "PackagePath": "staticwebassets\\browser\\favicon.ico"
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\index.html",
-      "PackagePath": "staticwebassets\\browser\\index.html"
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\main-ZX3XWOMI.js",
+      "PackagePath": "staticwebassets\\main-ZX3XWOMI.js"
     },
     {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\main-ZY4ADLFY.js",
-      "PackagePath": "staticwebassets\\browser\\main-ZY4ADLFY.js"
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\polyfills-5CFQRCPP.js",
+      "PackagePath": "staticwebassets\\polyfills-5CFQRCPP.js"
     },
     {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\polyfills-5CFQRCPP.js",
-      "PackagePath": "staticwebassets\\browser\\polyfills-5CFQRCPP.js"
-    },
-    {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\browser\\styles-X5KLOVVP.css",
-      "PackagePath": "staticwebassets\\browser\\styles-X5KLOVVP.css"
-    },
-    {
-      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\prerendered-routes.json",
-      "PackagePath": "staticwebassets\\prerendered-routes.json"
+      "Id": "C:\\Proyectos\\marcador-basket\\api\\BasketApi\\wwwroot\\styles-X5KLOVVP.css",
+      "PackagePath": "staticwebassets\\styles-X5KLOVVP.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BasketApi.Microsoft.AspNetCore.StaticWebAssets.props",

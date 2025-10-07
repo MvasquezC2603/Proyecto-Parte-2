@@ -11,53 +11,47 @@ export interface Match {
   scoreAway: number;
   foulsHome: number;
   foulsAway: number;
-  startAt: string | null;           // puede ser null si no lo usas
-  endAt: string | null;             // null mientras esté en curso
+  startAt: string;           // ISO
+  endAt: string | null;
   status: 'in_progress' | 'finished';
 }
 
-const API_BASE = '/api';            // mismo origen (http://localhost:8081)
-const MATCHES = `${API_BASE}/matches`;
+const API_URL = '/api/matches'; // ← usamos el proxy
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  // Historial
   getMatches(): Observable<Match[]> {
-    return this.http.get<Match[]>(MATCHES);
+    return this.http.get<Match[]>(API_URL);
   }
 
-  // Partido en curso
   getInProgress(): Observable<Match | null> {
-    return this.http.get<Match | null>(`${MATCHES}/in-progress`);
+    return this.http.get<Match | null>(`${API_URL}/in-progress`);
   }
 
-  // Crear partido (general)
   createMatch(match: Match): Observable<Match> {
-    return this.http.post<Match>(MATCHES, match);
+    return this.http.post<Match>(API_URL, match);
   }
 
-  // Actualizar por id
   updateMatch(id: number, match: Match): Observable<Match> {
-    return this.http.put<Match>(`${MATCHES}/${id}`, match);
+    return this.http.put<Match>(`${API_URL}/${id}`, match);
   }
-
-  // Iniciar partido desde el front
   startMatch(input: { homeTeam: string; awayTeam: string; durationSeconds: number }): Observable<Match> {
-    const body: Match = {
-      homeTeam:  input.homeTeam,
-      awayTeam:  input.awayTeam,
-      quarter:   1,
+    // el backend ignora duration si no la usa; no pasa nada por enviarla
+    return this.http.post<Match>(`${API_URL}/start`, {
+      homeTeam: input.homeTeam,
+      awayTeam: input.awayTeam,
+      quarter: 1,
       scoreHome: 0,
       scoreAway: 0,
       foulsHome: 0,
       foulsAway: 0,
-      startAt:   new Date().toISOString(),
-      endAt:     null,
-      status:    'in_progress',
-    };
-    // OJO: endpoint correcto
-    return this.http.post<Match>(MATCHES, body);
+      startAt: new Date().toISOString(),
+      endAt: null,
+      status: 'in_progress',
+      durationSeconds: input.durationSeconds
+    } as any);
   }
 }
+

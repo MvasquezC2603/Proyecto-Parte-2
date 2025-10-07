@@ -1,13 +1,14 @@
-<div style="display:flex; gap:12px; align-items:end; flex-wrap:wrap">
-  <div>
-    <label>Equipo Local</label><br>
-    <input [(ngModel)]="home" placeholder="Local" />
-  </div>
-
-  <div>
-    <label>Equipo Visita</label><br>
-    <input [(ngModel)]="away" placeholder="Visita" />
-  </div>
-
-  <button (click)="aplicar()">Aplicar</button>
-</div>
+<h2>Nuevo Partido</h2>
+<label>Equipo Local
+  <input [(ngModel)]="home" placeholder="Local" />
+</label>
+&nbsp;&nbsp;
+<label>Equipo Visita
+  <input [(ngModel)]="away" placeholder="Visita" />
+</label>
+&nbsp;&nbsp;
+<label>Duración (min)
+  <input type="number" [(ngModel)]="minutes" min="1" />
+</label>
+&nbsp;&nbsp;
+<button (click)="comenzar()">Comenzar</button>
