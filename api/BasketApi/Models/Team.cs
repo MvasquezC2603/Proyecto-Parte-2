@@ -1,9 +1,14 @@
-namespace BasketApi.Models;
-public class Team
+namespace BasketApi.Models
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = null!;
-    public string City { get; set; } = "";
-    public string LogoUrl { get; set; } = "";
-    public List<Player> Players { get; set; } = new();
+    public class Team
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string City { get; set; } = "";
+        public string? LogoUrl { get; set; }
+
+        public ICollection<Player> Players { get; set; } = new List<Player>();
+        public ICollection<Match> HomeMatches { get; set; } = new List<Match>();
+        public ICollection<Match> AwayMatches { get; set; } = new List<Match>();
+    }
 }

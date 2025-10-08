@@ -4,16 +4,19 @@ using BasketApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BasketApi.Migrations
+namespace BasketApi.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251008010017_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace BasketApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BasketApi.Models.Match", b =>
+            modelBuilder.Entity("Match", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +60,7 @@ namespace BasketApi.Migrations
                     b.ToTable("Matches");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.MatchRoster", b =>
+            modelBuilder.Entity("MatchRoster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +88,7 @@ namespace BasketApi.Migrations
                     b.ToTable("MatchRosters");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Player", b =>
+            modelBuilder.Entity("Player", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -124,7 +127,7 @@ namespace BasketApi.Migrations
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Team", b =>
+            modelBuilder.Entity("Team", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -148,7 +151,7 @@ namespace BasketApi.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.User", b =>
+            modelBuilder.Entity("User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -176,16 +179,16 @@ namespace BasketApi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Match", b =>
+            modelBuilder.Entity("Match", b =>
                 {
-                    b.HasOne("BasketApi.Models.Team", "AwayTeam")
-                        .WithMany("AwayMatches")
+                    b.HasOne("Team", "AwayTeam")
+                        .WithMany()
                         .HasForeignKey("AwayTeamId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BasketApi.Models.Team", "HomeTeam")
-                        .WithMany("HomeMatches")
+                    b.HasOne("Team", "HomeTeam")
+                        .WithMany()
                         .HasForeignKey("HomeTeamId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -195,21 +198,21 @@ namespace BasketApi.Migrations
                     b.Navigation("HomeTeam");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.MatchRoster", b =>
+            modelBuilder.Entity("MatchRoster", b =>
                 {
-                    b.HasOne("BasketApi.Models.Match", "Match")
+                    b.HasOne("Match", "Match")
                         .WithMany("Rosters")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BasketApi.Models.Player", "Player")
+                    b.HasOne("Player", "Player")
                         .WithMany()
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BasketApi.Models.Team", "Team")
+                    b.HasOne("Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -222,9 +225,9 @@ namespace BasketApi.Migrations
                     b.Navigation("Team");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Player", b =>
+            modelBuilder.Entity("Player", b =>
                 {
-                    b.HasOne("BasketApi.Models.Team", "Team")
+                    b.HasOne("Team", "Team")
                         .WithMany("Players")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -233,17 +236,13 @@ namespace BasketApi.Migrations
                     b.Navigation("Team");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Match", b =>
+            modelBuilder.Entity("Match", b =>
                 {
                     b.Navigation("Rosters");
                 });
 
-            modelBuilder.Entity("BasketApi.Models.Team", b =>
+            modelBuilder.Entity("Team", b =>
                 {
-                    b.Navigation("AwayMatches");
-
-                    b.Navigation("HomeMatches");
-
                     b.Navigation("Players");
                 });
 #pragma warning restore 612, 618
